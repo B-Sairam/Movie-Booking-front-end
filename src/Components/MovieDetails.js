@@ -13,8 +13,9 @@ const MovieDetails = () => {
   useEffect(()=>{
     if(params.id){
         getData();
-        console.log(movies);
+       
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
    },[])
   function getData(){
 
