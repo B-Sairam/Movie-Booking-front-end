@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState,useEffect } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 const moviContext = createContext();
 const Provider = ({children}) => {
     const [user,setUser]=useState();
@@ -12,10 +12,7 @@ const Provider = ({children}) => {
     const [row,setRow]=useState();
     const [seatNo,setSeatNo]=useState();
 
-    useEffect(()=>{
-        const bookingUser = JSON.parse(localStorage.getItem("bookingUser"));
-        setUser(bookingUser);
-    },[])
+   
   return <>
   <moviContext.Provider value={{movieTime,setMovietime,cinemas,setCinemas,user,
     seats,setSeats,setUser,row,setRow,movies,setMovies,seatNo,setSeatNo,location,setLocation,selectedMovie,setSelectedmovie,tickets,setTickets}}>

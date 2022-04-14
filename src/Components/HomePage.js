@@ -3,14 +3,28 @@ import Header from '../miniComponents/Header';
 import {  Carousel } from 'react-bootstrap';
 import { DataState } from '../context/Provider';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
+import Footer from '../miniComponents/Footer';
 
 
 const HomePage = () => {
+
   let navigate = useNavigate()
-  const {movies}=DataState();
+  const {movies,location}=DataState();
+  const toast = useToast();
   const clickHandler=(val)=>{
+   if(location){
+    navigate('/details/'+val._id)
+   }else{
+    toast({
+      title:"Select Location",
+      status:"warning",
+      duration:3000,
+      isClosable:true,
+      position:"top"
+  });
+   }
    
-   navigate('/details/'+val._id)
   }
   return <>
   <Header/> 
@@ -63,6 +77,7 @@ const HomePage = () => {
                     </div> })
             }
            </div>
+           <Footer/>
   </>
 }
 

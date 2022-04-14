@@ -5,15 +5,19 @@ import Authtentication from './Components/Authtentication';
 import BookingTicket from './Components/BookingTicket';
 import HomePage from './Components/HomePage';
 import MovieDetails from './Components/MovieDetails';
+import MyTickets from './Components/MyTickets';
 import { BASE_URL } from './constant';
 import { DataState } from './context/Provider';
 import SearchBar from './miniComponents/SearchBar';
 
 
 function App() {
-  const {user,setUser,selectedMovie,setSelectedmovie,tickets,setTickets,movies,setMovies}=DataState();
+  const {setUser,setMovies}=DataState();
   useEffect(()=>{
     getData()
+    const bookingUser = JSON.parse(localStorage.getItem("bookingUser"));
+    setUser(bookingUser);
+    console.log(bookingUser);
   },[])
   let getData = async()=>{
     let respon = await axios.get(`${BASE_URL}movies`)
@@ -27,6 +31,9 @@ function App() {
       <Route path='/details/:id' element={<MovieDetails/>}/>
       <Route path='/search' element={<SearchBar/>}/>
       <Route path='/booking' element={<BookingTicket/>}/>
+      <Route path='/tickets' element={<MyTickets/>}/>
+
+      
     </Routes>
   </Router>
   </>

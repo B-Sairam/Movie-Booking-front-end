@@ -3,16 +3,14 @@ body{
   padding: 0%;
   box-sizing: border-box;
 }
-.main{  
+.log-main{  
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: sans-serif;
-  justify-content: center;
-  background-color: rgb(225, 225, 226);
   height: 100vh;
- 
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: #f5f6f4;
 }
 
 .auth-page{
@@ -28,18 +26,13 @@ body{
 .title{
  font-size: 40px;
  font-family:cursive;
- color: rgb(248, 248, 248);
+ color: rgb(69, 68, 68);
  font-weight:900;
- background-color: #1cb61c;
- padding: 3px 20px;
- border-radius: 20px;
- margin-bottom: -20px;
- margin-top: 5px;
 
 }
 .title span{
   font-size: 50px;
-  color: #0a0a0a;
+  color: #ff0000;
 
 }
 .title-home{
@@ -80,7 +73,7 @@ select option{
   padding-top: -10px;
   font-size: 30px;
   transform: rotate(20deg);
-  color:#1cb61c;
+  color:#d50707;
 }
 
 .search-input{
@@ -140,7 +133,7 @@ select option{
 
 
 .btn-color{
-  background-color: #1cb61c;
+  background-color: #cf1515;
   color: white;
 }
 .btn-color:hover{
@@ -262,7 +255,7 @@ box-shadow: 200px 194px 348px 137px rgba(0,0,0,0.77) inset;
   position: absolute;
   display: flex;
   right: 30px;
-  top: 100px;
+  top: 50px;
   z-index: 1;
 }
 .booking-page{
@@ -466,6 +459,7 @@ select{
 .booking-succ-pop{
   width: 400px;
   height: 200px;
+  border-radius: 10px;
   background-color: #ffffff;
   position: absolute;
   top: 50%;
@@ -484,7 +478,174 @@ box-shadow: 0px 0px 299px 1px rgba(0,0,0,0.75);
   font-size: 30px;
   padding-bottom: 20px;
 }
+.MyTickets{
+  width: 100%;
+  max-height: fit-content;
+  background-color: rgb(166, 166, 166);
+}
+.tickets-head{
+width: 90%;
+margin: 0 auto;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+padding: 20px 0;
+}
+.tickets-head>h1{
+  font-size: 30px;
+}
+.main-tickets{
+  width: 80%;
+  margin: 40px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+}
+.ticket{
+  width: 310px;
+  height: 500px;
+  background-color: #e9e9e9;
+  padding: 20px 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.ticket .ticket-h{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+.ticket .ticket-h>img{
+  width: 120px;
+  height: 140px;
+  border-radius: 10px;
+}
 
+.ticket-b{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-top: 1px dashed rgb(199, 199, 199);
+  border-bottom: 1px dashed rgb(199, 199, 199);
+  padding: 16px 0px;
+
+}
+.ticket-b .b-1>h1{
+  font-size: 20px;
+  font-weight: 500;
+}
+.ticket-b .b-2>h1{
+  font-size: 17px;
+  font-weight: 400;
+}
+.ticket-b .b-1{
+  text-align: center;
+}
+
+.ticket .ticket-h .t-detail{
+}
+
+.t-detail>h1{
+ font-size: 17px;
+ font-weight: 500;
+ padding: 5px 0;
+}
+.qr-code{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px dashed rgb(199, 199, 199);
+
+}
+.qr-code>p{
+  padding: 15px 0;
+  font-size: 14px;
+}
+.qr-code>p>span{
+  font-weight: 500;
+}
+.qr-code img{
+  width: 90px;
+  height: 90px;
+}
+.ticket-f{
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  justify-content: space-between;
+}
+.ticket-f>img{
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.tick-count{
+  position: absolute;
+  border-radius: 50%;
+  color: rgb(239, 239, 239);
+
+  font-size: 14px;
+  font-weight: 500;
+  top: 0;
+ 
+ right: 126px;
+}
+.loading{
+  margin: 0;
+  position: absolute;
+  left: 47%;
+  top: 270px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border-top: 2px solid red;
+  animation: spinner 0.6s linear infinite ;
+}
+.footer{
+  width: 100%;
+  height: fit-content;
+  background-color:#2e3147;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 0 10px 0;
+  letter-spacing: 1px;
+  color: rgb(219, 214, 214);
+}
+.footer h1{
+  font-size: 40px;
+ font-family:cursive;
+ color: rgb(224, 222, 222);
+ font-weight:900;
+ font-family: cursive;
+ padding: 20px;
+}
+.back{
+  display: flex;
+ justify-content: flex-end;
+ margin-top: 10px;
+ margin-bottom: -20px;
+ margin-right: 20px;
+}
+.footer h1>span{
+  color: #cf1010;
+}
+.footer p{
+  padding-bottom: 6px;
+}
+
+
+@keyframes spinner{
+  to{
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 480px) {
   .auth-page{
       width:300px;

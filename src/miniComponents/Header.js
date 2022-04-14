@@ -4,12 +4,17 @@ import React from 'react'
 import { DataState } from '../context/Provider';
 import ProfileModel from './ProfileModel';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const {user,tickets,location,setLocation}=DataState()
+  let navigate = useNavigate();
+  const {user,setLocation}=DataState()
 
   let logout = ()=>{
+
     localStorage.removeItem('bookingUser')
+    navigate("/")
+
   }
   return <>
   <div className='contain'>
@@ -52,14 +57,20 @@ const Header = () => {
             </Tooltip>
           </Menu>
              <Menu>
+             <Link to="/tickets">
+             <Tooltip hasArrow label='View Tickets' bg='gray' color='white'>
                  <MenuButton p={1} pr={6}>
-                 <i className="fa-solid fa-ticket" style={{color:"#1cb61c"}}></i>
-                 {/* <span className="tickets">{tickets.length}</span> */}
+                   <h3 style={{fontSize:"20px",color:"white"}}><i className="fa-solid fa-ticket" style={{color:"red",fontSize:"18px",marginRight:"10px"}}></i>Tickects</h3>
+                 
+                 {/* <span className="tick-count">{tickets.length}</span> */}
                  </MenuButton>
-                 <MenuList pl={2}>
-                     {!tickets.length && "No New Messages"}
+                
+                 {/* <MenuList pl={2}>
+                     {!tickets.length && "No Tickets"}
                     
-                 </MenuList>
+                 </MenuList> */}
+                 </Tooltip>
+                 </Link>
              </Menu>
              <Menu p="-10px">
                  <MenuButton as={Button} rightIcon={<ChevronDownIcon/>}>
@@ -69,8 +80,9 @@ const Header = () => {
                       />  
                  </MenuButton>
                  <MenuList>
+                
                    <ProfileModel>
-                 <MenuItem>My Profile</MenuItem>
+                   <MenuItem> My Profile</MenuItem>
                  </ProfileModel>
                   <MenuItem onClick={()=>logout()}>LogOut</MenuItem>
 

@@ -14,11 +14,11 @@ const Authtentication = () => {
       },[navigate])
    
   return <>
-     <div className='main'>
+     <div className='log-main'>
        <div className='title'>
          make<span>My</span>show
         </div>
-     <div className='auth-page col-6'>
+     <div className='auth-page '>
        
         <div className='auth-btn'>
             <button className={!toggle?"btn btn-color":"btn"} onClick={()=>setToggle(false)}>Login</button>

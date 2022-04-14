@@ -2,7 +2,7 @@ import { Button } from '@chakra-ui/react';
 import React,{useEffect, useState} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import { DataState } from '../context/Provider';
-import Header from '../miniComponents/Header';
+import Footer from '../miniComponents/Footer';
 
 const MovieDetails = () => {
 
@@ -13,20 +13,21 @@ const MovieDetails = () => {
   useEffect(()=>{
     if(params.id){
         getData();
+        console.log(movies);
     }
    },[])
   function getData(){
 
-    let d =  movies.filter((e)=>e._id === params.id)
+    let d =  movies?.filter((e)=>e._id === params.id)
     setSelectedmovie(d[0])
     setData(d[0])
     
-  }  console.log(data);
-  return <>{data===undefined?<div>Lodaing</div>:<div>
-       <Header/> 
+  } 
+  return <>{data===undefined?<div className='loading'></div>:<div>
+      
   <div  className="d-back">
    <Link to="/home">
- <Button bg="#1cb61c" color="white"
+ <Button bg="#1cb61c" color="white" 
            _hover={{
              background:"#50ce50",
              color:"white",
@@ -111,6 +112,7 @@ const MovieDetails = () => {
        </div>
  </div>
    </div>}
+   <Footer/>
   </>
 }
 

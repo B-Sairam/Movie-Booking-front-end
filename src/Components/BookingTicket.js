@@ -1,10 +1,9 @@
-import { useToast } from '@chakra-ui/react'
+import { Button, useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../constant'
 import { DataState } from '../context/Provider'
-import Header from '../miniComponents/Header'
 
 const BookingTicket = () => {
   const toast = useToast();
@@ -13,8 +12,8 @@ const BookingTicket = () => {
   const [subtotal,Setsubtotal] = useState();
   const [tdate,setDate]=useState();
   const [pop,setPop]=useState(false)
-  const {user,selectedMovie,setSelectedmovie,cinemas,setCinemas,location, seats,setSeats,row,setRow,setMovietime,movieTime}=DataState();
-  console.log(cinemas);
+  const {user,selectedMovie,cinemas,setCinemas,location, seats,setSeats,row,setRow,setMovietime,movieTime}=DataState();
+  console.log(user);
 
   
   const seatsfun =(newseat)=>{
@@ -39,6 +38,7 @@ const BookingTicket = () => {
   }
 }
  const sendTicket=async()=>{
+   console.log(user);
    let email = user.email;
    let movieName=selectedMovie.movieName;
    let pic= selectedMovie.poster;
@@ -118,8 +118,18 @@ const BookingTicket = () => {
 
   return<>
   
-  <Header/>
+  
   <div className='booking-page'>
+  <div  className="back">
+   <Link to="/home">
+ <Button bg="#1cb61c" color="white" 
+           _hover={{
+             background:"#50ce50",
+             color:"white",
+           }}
+    >back</Button>
+  </Link>
+ </div>
    <div className='booking-head'>
      <div className='movie-booking-del'>
        <div className='part-1'><h1>{selectedMovie.movieName}</h1> &nbsp; {selectedMovie.type}</div>
@@ -311,7 +321,7 @@ const BookingTicket = () => {
      </div>
      <div className={pop?'booking-succ-pop':"disable"}>
        <h1>Ticket Booked Successfully</h1>
-       <Link to="/home"><button className='btn btn-primary'>Back to Home</button></Link>
+       <Link to="/tickets"><button className='btn btn-primary'>View Tickects</button></Link>
      </div>
    </div>
   
