@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const SearchBar = () => {
     const [search,setSearch] = useState('');
-    const {movies,selectedMovie,setSelectedmovie}=DataState();
+    const {movies,setSelectedmovie}=DataState();
 
   return <>
     <Box
