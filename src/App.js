@@ -12,16 +12,15 @@ import SearchBar from './miniComponents/SearchBar';
 
 
 function App() {
-  const {setUser,setMovies}=DataState();
+  const {setMovies}=DataState();
   useEffect(()=>{
     getData()
-    const bookingUser = JSON.parse(localStorage.getItem("bookingUser"));
-    setUser(bookingUser);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
   let getData = async()=>{
     let respon = await axios.get(`${BASE_URL}movies`)
     setMovies(respon.data)
+    
   }
   return <>
   <Router>

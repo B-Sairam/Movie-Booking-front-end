@@ -4,6 +4,7 @@ import { BASE_URL } from '../constant';
 
 import { useNavigate } from 'react-router-dom';
 import {Button, useToast } from '@chakra-ui/react';
+import { DataState } from '../context/Provider';
 const Register = () => {
   let navigate = useNavigate()
   const [name,setName]=useState('');
@@ -13,7 +14,7 @@ const Register = () => {
   const [pic,setPic]=useState();
   const [loading,setLoading]=useState(false);
   const toast = useToast();
-
+  const {setUser}=DataState();
   const submitHandler=async()=>{
     setLoading(true)
     if(!name||!email||!password||!re_pasword){
@@ -51,6 +52,8 @@ const Register = () => {
         position:"top"
     });
       localStorage.setItem('bookingUser',JSON.stringify(data));
+      const bookingUser = JSON.parse(localStorage.getItem("bookingUser"));
+      setUser(bookingUser);
       setLoading(false)
       navigate('/home')
     } catch (error) {

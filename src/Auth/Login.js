@@ -3,6 +3,7 @@ import {Button, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { BASE_URL } from '../constant';
+import { DataState } from '../context/Provider';
 const Login = () => {
   const navigate = useNavigate()
   const toast = useToast();
@@ -10,7 +11,7 @@ const Login = () => {
   const [password,setPassword]=useState('')
   const [showPass,setShowPass]=useState(false);
   const [loading,setLoading]=useState(false);
-
+ const {setUser} = DataState();
   function hidepassword(){
     if(showPass===true) setShowPass(false)
     else setShowPass(true)
@@ -46,6 +47,8 @@ const Login = () => {
           position:"top"
       });
         localStorage.setItem('bookingUser',JSON.stringify(data));
+        const bookingUser = JSON.parse(localStorage.getItem("bookingUser"));
+        setUser(bookingUser);
         setLoading(false)
         navigate('/home')
       } catch (error) {
