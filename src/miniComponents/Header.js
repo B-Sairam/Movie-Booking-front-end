@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   let navigate = useNavigate();
-  const {user,setLocation}=DataState()
-
+  const {user,setUser,setLocation}=DataState()
   let logout = ()=>{
 
     localStorage.removeItem('bookingUser')
+    setUser('');
     navigate("/")
 
   }

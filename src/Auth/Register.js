@@ -123,8 +123,8 @@ const Register = () => {
         <Button
       isLoading={loading}
       loadingText='Loading..'
-      colorScheme='#1cb61c'
-      bgColor="#1cb61c"
+      colorScheme='red'
+      variant='outline'
       onClick={()=>submitHandler()}
     >
       Register

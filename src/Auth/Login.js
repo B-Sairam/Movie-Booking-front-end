@@ -85,7 +85,7 @@ const Login = () => {
       <Button
        isLoading={loading}
        loadingText='Submitting'
-       colorScheme='teal'
+       colorScheme='red'
        variant='outline'
       onClick={()=>loginHandler()}
     >
