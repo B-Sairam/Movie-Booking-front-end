@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Button, useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
@@ -12,6 +12,15 @@ const Login = () => {
   const [showPass,setShowPass]=useState(false);
   const [loading,setLoading]=useState(false);
  const {setUser} = DataState();
+
+ useEffect(()=>{
+  const customer = JSON.parse(localStorage.getItem("bookingUser"))
+  if(customer){
+    setUser(customer)
+    navigate('/home')
+  }else console.log(false);
+},[])
+
   function hidepassword(){
     if(showPass===true) setShowPass(false)
     else setShowPass(true)

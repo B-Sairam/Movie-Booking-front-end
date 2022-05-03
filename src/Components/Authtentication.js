@@ -1,17 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
 const Authtentication = () => {
-    let navigate = useNavigate()
+    
     const [toggle,setToggle]=useState(false);
     useEffect(()=>{
       console.log(toggle);
     },[toggle])
-    useEffect(()=>{
-        const user = JSON.parse(localStorage.getItem("bookingUser"))
-        if(user) navigate('/home')
-      },[navigate])
    
   return <>
      <div className='log-main'>
